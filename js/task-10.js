@@ -41,7 +41,7 @@ function createBoxes (amount) {
 };
 
 function destroyBoxes() {
-  let boxes = document.querySelector('#boxes');
+  const boxes = document.querySelector('#boxes');
   while (boxes.firstChild) {
     boxes.removeChild(boxes.firstChild);
   }

@@ -38,25 +38,43 @@
 // });
 
 
-const formLogin = document.querySelector('.login-form');
+// const formLogin = document.querySelector('.login-form');
 
-formLogin.addEventListener('submit', event => {
-  event.preventDefault();
-  const formData = {};
-  for (const element of formLogin.elements) {
-    if (element.name) {
-      formData[element.name] = element.value;
-    }
-  }
-  if (formData.email && formData.password) {
-    console.log(formData);
-    formLogin.reset();
-  } else {
-    alert('Всі поля повинні бути заповнені');
-  }
-});
+// formLogin.addEventListener('submit', event => {
+//   event.preventDefault();
+//   const formData = {};
+//   for (const element of formLogin.elements) {
+//     if (element.name) {
+//       formData[element.name] = element.value;
+//     }
+//   }
+//   if (formData.email && formData.password) {
+//     console.log(formData);
+//     formLogin.reset();
+//   } else {
+//     alert('Всі поля повинні бути заповнені');
+//   }
+// });
 
 // const age = 20;
 // console.log(age > 10 && age < 30); // true && true -> true
 // console.log("Mango" && "Poly"); //poly
 // console.log("Mango" || "Poly") // Mango
+
+
+
+const form = document.querySelector("form.login-form");
+const onFormSubmit = (event) => {
+  event.preventDefault();
+  const formData = {
+    email: event.currentTarget.email.value,
+    password: event.currentTarget.password.value,
+  };
+   if (!formData.email || !formData.password)
+     alert("All fields must be filled!");
+   else {
+   console.log(formData);
+     event.currentTarget.reset();
+   }
+}
+form.addEventListener('submit', onFormSubmit)
